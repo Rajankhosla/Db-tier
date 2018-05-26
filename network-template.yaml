@@ -1,0 +1,14 @@
+resources:
+- type: compute.v1.network 
+  name: ximble-network
+  properties: 
+   autoCreateSubnetworks: false
+   routingConfig:
+      routingMode: GLOBAL
+- type: compute.v1.subnetwork 
+  name: ximble-subnet
+  properties: 
+   network: $(ref.ximble-network.selfLink) 
+   region: us-central1 
+   ipCidrRange: 10.2.0.0/16
+   privateIpGoogleAccess: true
